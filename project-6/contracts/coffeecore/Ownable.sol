@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity >=0.4.21 <=0.8.15;
 
 /// Provides basic authorization control
@@ -8,7 +9,7 @@ contract Ownable {
     event TransferOwnership(address indexed oldOwner, address indexed newOwner);
 
     /// Assign the contract to an owner
-    constructor () internal {
+    constructor () {
         origOwner = msg.sender;
         emit TransferOwnership(address(0), origOwner);
     }
@@ -30,7 +31,7 @@ contract Ownable {
     }
 
     /// Define a function to renounce ownerhip
-    function renounceOwnership() public onlyOwner {
+    function renounceOwnershiprenounceOwnership() public onlyOwner {
         emit TransferOwnership(origOwner, address(0));
         origOwner = address(0);
     }
